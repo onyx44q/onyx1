@@ -2,86 +2,100 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
-* {box-sizing: border-box;}
-
-body { 
-  margin: 0;
+body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.header {
+.navbar {
   overflow: hidden;
-  background-color:#FFFFFF
-;
-  padding: 20px 10px;
+  background-color: 	#3366ff ;
 }
 
-.header a {
+.navbar a {
   float: left;
-  color: black;
-  text-align: center;
-  padding: 12px;
-  text-decoration: none;
-  font-size: 18px; 
-  line-height: 25px;
-  border-radius: 4px;
-}
-
-.header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-}
-
-.header a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.header a.active {
-  background-color: dodgerblue;
+  font-size: 16px;
   color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
 }
 
-.header-right {
-  float: right;
+.dropdown {
+  float: left;
+  overflow: hidden;
 }
 
-@media screen and (max-width: 500px) {
-  .header a {
-    float: none;
-    display: block;
-    text-align: left;
-  }
-  
-  .header-right {
-    float: none;
-  }
+.dropdown .dropbtn {
+  font-size: 16px;  
+  border: none;
+  outline: none;
+  color: white;
+  padding: 14px 16px;
+  background-color: inherit;
+  font-family: inherit;
+  margin: 0;
+}
+
+.navbar a:hover, .dropdown:hover .dropbtn {
+  background-color: black;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  float: none;
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+  text-align: left;
+}
+
+.dropdown-content a:hover {
+  background-color: #ddd;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 </style>
 </head>
-<body>
+<body style="background-color:white;">
 
-<div class="header">
-  
-  <img src="images.png"alt="Jack sparrow" width="5%">
-  <div class="header-right">
-    <a class="active" href="#home">Home</a>
-    <a href="about2.html">About</a>
-    <a href="contact.html">contact</a>
-    <a href="signup.html">Signup</a>
-    <a href="login.html">Login</a>
-    <a href="booking.html">BookAppointment</a>
-    <a href="adminlog.html">AdminLog in</a>
-  </div>
+<div class="navbar">
+  <a href="indexhomepage.html">Home</a>
+  <a href="register2.html">Register</a>
+  <a href="about2.html">About</a>
+  <a href="services.html">Services</a> 
+  <a href="gallery.html">Gallery</a>
+  <a href="contact.html">Contact</a>
+  <div class="dropdown">
+    <button class="dropbtn">Other business 
+      <i class="fa fa-caret-down"></i>
+    </button>
+    <div class="dropdown-content">
+      <a href="column layout.html">Layout</a>
+      <a href="Terms and condition">Term and conditions</a>
+     
+    </div>
+  </div> 
 </div>
 
-<div style="padding-left:20px">
- 
-</div>
+
 
 </body>
 </html>
+
+
 
 <!DOCTYPE html>
 <html>
@@ -118,13 +132,13 @@ body, html {
   display: inline-block;
   padding: 10px 25px;
   color: black;
-  background-color: #ddd;
+  background-color: white;
   text-align: center;
   cursor: pointer;
 }
 
 .hero-text button:hover {
-  background-color: #555;
+  background-color: #3366ff;
   color: white;
 }
 </style>
@@ -134,6 +148,7 @@ body, html {
 <div class="hero-image">
   <div class="hero-text">
     <h1 style="font-size:50px">EDOC</h1>
+    <img src="images.jpeg" height="100" width="100">
     <p>Simply the best</p>
     <button>Make appointment easily</button>
   </div>
