@@ -1,179 +1,51 @@
-<?php
+<?php 
 
-//learn from w3schools.com
-//Unset all the server side variables
+include 'connection.php';
 
-session_start();
+if(isset($_POST['signUp'])){
+    $firstName=$_POST['fName'];
+    $lastName=$_POST['lName'];
+    $email=$_POST['email'];
+    $password=$_POST['password'];
+    $password=md5($password);
 
-$_SESSION["user"]="";
-$_SESSION["usertype"]="";
-
-// Set the new timezone
-date_default_timezone_set('Asia/Kolkata');
-$date = date('Y-m-d');
-
-$_SESSION["date"]=$date;
-
-
-//import database
-include("connection.php");
-
-
-
-
-
-if($_POST){
-
-    $result= $database->query("select * from webuser");
-
-    $fname=$_SESSION['personal']['fname'];
-    $lname=$_SESSION['personal']['lname'];
-    $name=$fname." ".$lname;
-    $address=$_SESSION['personal']['address'];
-    $nic=$_SESSION['personal']['nic'];
-    $dob=$_SESSION['personal']['dob'];
-    $email=$_POST['newemail'];
-    $tele=$_POST['tele'];
-    $newpassword=$_POST['newpassword'];
-    $cpassword=$_POST['cpassword'];
+     $checkEmail="SELECT * From users where email='$email'";
     
-    if ($newpassword==$cpassword){
-        $result= $database->query("select * from webuser where email='$email';");
-        if($result->num_rows==1){
-            $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Already have an account for this Email address.</label>';
-        }else{
-            
-            $database->query("insert into patient(pemail,pname,ppassword, paddress, pnic,pdob,ptel) values('$email','$name','$newpassword','$address','$nic','$dob','$tele');");
-            $database->query("insert into webuser values('$email','p')");
+     $result=$conn->query($checkEmail);
+     if($result->num_rows>0){
+        echo "Email Address Already Exists !";
+     }
+     else{
+        $insertQuery="INSERT INTO users(firstname,lastname,email,password)
+                       VALUES ('$firstname','$lastname','$email','$password')";
+            if($conn->query($insertQuery)==TRUE){
+                header("location: indexhomepage.php");
+            }
+            else{
+                echo "Error:".$conn->error;
+            }
+     }
+   
 
-            //print_r("insert into patient values($pid,'$email','$fname','$lname','$newpassword','$address','$nic','$dob','$tele');");
-            $_SESSION["user"]=$email;
-            $_SESSION["usertype"]="p";
-            $_SESSION["username"]=$fname;
-
-            header('Location: patient/index.php');
-            $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;"></label>';
-        }
-        
-    }else{
-        $error='<label for="promter" class="form-label" style="color:rgb(255, 62, 62);text-align:center;">Password Conformation Error! Reconform Password</label>';
-    }
-
-
-
-    
-}else{
-    //header('location: signup.php');
-    $error='<label for="promter" class="form-label"></label>';
 }
 
+if(isset($_POST['signIn'])){
+   $email=$_POST['email'];
+   $password=$_POST['password'];
+   $password=md5($password) ;
+   
+   $sql="SELECT * FROM users WHERE email='$email' and password='$password'";
+   $result=$conn->query($sql);
+   if($result->num_rows>0){
+    session_start();
+    $row=$result->fetch_assoc();
+    $_SESSION['email']=$row['email'];
+    header("Location: homepage.php");
+    exit();
+   }
+   else{
+    echo "Not Found, Incorrect Email or Password";
+   }
+
+}
 ?>
-
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/animations.css">  
-    <link rel="stylesheet" href="css/main.css">  
-    <link rel="stylesheet" href="css/signup.css">
-        
-   
-       
-    <title>Sign Up</title>
-</head> 
-<body>
-
-
-
-
-
-   
-
-    <div class="container">
-        <table border="0">
-            <tr>
-                <td colspan="2">
-                    <p class="header-text">Let's Get Started,add personal details</p>
-                  
-                </td>
-            </tr>
-            <tr>
-                <form action="" method="POST" >
-                <td class="label-td" colspan="2">
-                    <label for="name" class="form-label">Name: </label>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td">
-                    <input type="text" name="fname" class="input-text" placeholder="First Name" required>
-                </td>
-                <td class="label-td">
-                    <input type="text" name="lname" class="input-text" placeholder="Last Name" required>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <label for="address" class="form-label">Address: </label>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <input type="text" name="address" class="input-text" placeholder="Address" required>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <label for="nic" class="form-label">NIC: </label>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <input type="text" name="nic" class="input-text" placeholder="NIC Number" required>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <label for="dob" class="form-label">Date of Birth: </label>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-                    <input type="date" name="dob" class="input-text" required>
-                </td>
-            </tr>
-            <tr>
-                <td class="label-td" colspan="2">
-               
-                </td>
-            </tr>
-
-            <tr>
-                <td>
-                    <input type="reset" value="Reset" class="login-btn btn-primary-soft btn" >
-                </td>
-                <td>
-                    <input type="submit" value="Next" class="login-btn btn-primary btn">
-                </td>
-
-            </tr>
-            <tr>
-                <td colspan="2">
-                    <br>
-                    <label for="" class="sub-text" style="font-weight: 280;">Already have an account&#63; </label>
-                    <a href="login.html" class="hover-link1 non-style-link">Login</a>
-                    <br><br><br>
-                </td>
-            </tr>
-
-                    </form>
-            </tr>
-        </table>
-
-    </div>
-</center>
-</body>
-</html>
