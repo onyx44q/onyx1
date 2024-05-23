@@ -1,74 +1,84 @@
 
-<?php
-session_start();
-include("connection.php");
-
-?>
-
-
-
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-</head>
-<body>
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <style>
- body {
+* {box-sizing: border-box;}
+
+body { 
+  margin: 0;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-
-
-.navbar a {
-  float: left;
-  font-size: 16px;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+.header {
+  overflow: hidden;
+  background-color: #f1f1f1;
+  padding: 20px 10px;
 }
 
+.header a {
+  float: left;
+  color: black;
+  text-align: center;
+  padding: 12px;
+  text-decoration: none;
+  font-size: 18px; 
+  line-height: 25px;
+  border-radius: 4px;
+}
 
+.header a.logo {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+.header a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.header a.active {
+  background-color: dodgerblue;
+  color: white;
+}
+
+.header-right {
+  float: right;
+}
+
+@media screen and (max-width: 500px) {
+  .header a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+  
+  .header-right {
+    float: none;
+  }
+}
 </style>
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      
-    </div>
-    <ul class="nav navbar-nav">
-      <li class="active"><a href="indexhomepage.html">Home</a></li>
-      <li class="active"><a href="about2.html">About</a></li>
-      <li class="active"><a href="services.html">Services</a></li>
-      <li class="active"><a href="gallery.html">Gallery</a></li>
-      <li class="active"><a href="contact.html">Contact</a></li>
-      <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Other Business <span class="caret"></span></a>
-        <ul class="dropdown-menu">
-          <li><a href="column layout.html">Layout</a></li>
-          <li><a href="#">Terms and conditions</a></li>
-          
-        </ul>
-      </li>
-      
-    </ul>
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="signup2.php"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-     
-    </ul>
+</head>
+<body>
+
+<div class="header">
+  <a href="#default" class="logo">eDOC||</a>
+  <div class="header-right">
+    <a class="active" href="#home">Home</a>
+    <a href="signup2.php">Sign up</a>
+    <a href="login.php">Log in</a>
   </div>
-</nav>
-  
-<div class="container">
-  
 </div>
+
+
 
 </body>
 </html>
+
+
+
+
 
 
 
@@ -122,24 +132,40 @@ body, html {
 
 <div class="hero-image">
   <div class="hero-text">
-    <h1 style="font-size:50px">EDOC</h1>
-    <img src="images.jpeg" height="100" width="100">
+    <h1 style="font-size:50px">World`s Best Medical Leading Institution</h1>
+    <img src="depositphotos_78194048-stock-illustration-medical-logo-health-care-center.jpg" height="100" width="100">
+
     <p>Simply the best</p>
-    <button>Make appointment easily</button>
+    <!DOCTYPE html>
+<html>
+<head>
+<style>
+a:link, a:visited {
+  background-color: dodgerblue;
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
+
+a:hover, a:active {
+  background-color: red;
+}
+</style>
+</head>
+<body>
+
+
+<p><a href="login.php">Make Appointment</a>
+
+</body>
+</html>
+    
   </div>
 </div>
-<?php 
-       if(isset($_SESSION['email'])){
-        $email=$_SESSION['email'];
-        $query=mysqli_query($conn, "SELECT users.* FROM `users` WHERE users.email='$email'");
-        while($row=mysqli_fetch_array($query)){
-            echo $row['firstName'].' '.$row['lastName'];
-        }
-       }
-       ?>
-       :)
-      </p>
-      <a href="logout.php">Logout</a>
+
+     
 
 
 </body>

@@ -1,8 +1,17 @@
 <?php
 
-    $database= new mysqli("localhost:3308","root","","mydoc");
-    if ($database->connect_error){
-        die("Connection failed:  ".$database->connect_error);
-    }
+$host = "localhost:3308";
+$dbname = "login_db";
+$username = "root";
+$password = "";
 
-?>
+$mysqli = new mysqli(hostname: $host,
+                     username: $username,
+                     password: $password,
+                     database: $dbname);
+                     
+if ($mysqli->connect_errno) {
+    die("Connection error: " . $mysqli->connect_error);
+}
+
+return $mysqli;
