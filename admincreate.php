@@ -12,7 +12,7 @@ session_start();
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
-    <title>Patient Create</title>
+    <title>Appointment Create</title>
 </head>
 <body>
   
@@ -24,12 +24,12 @@ session_start();
             <div class="col-md-12">
                 <div class="card">
                     <div class="card-header">
-                        <h4>Patient Add 
-                            <a href="index3.php" class="btn btn-danger float-end">BACK</a>
+                        <h4>Appointment Add 
+                            <a href="index4.php" class="btn btn-danger float-end">BACK</a>
                         </h4>
                     </div>
                     <div class="card-body">
-                        <form action="code.php" method="POST">
+                        <form action="code2.php" method="POST">
 
                             <div class="mb-3">
                                 <label>Patient Name</label>

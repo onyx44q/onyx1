@@ -62,16 +62,18 @@ body {font-family: "Lato", sans-serif;}
 
 <div class="sidebar">
   <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="index3.php"><i class="fa fa-fw fa-wrench"></i>Book</a>
-  <a href="services.html"><i class="fa fa-fw fa-user"></i> Services</a>
-  <a href="contact.html"><i class="fa fa-fw fa-envelope"></i> Contact</a>
+  <a href="index3.php"><i class="fa fa-fw fa-book"></i>Book</a>
+  <a href="services.html"><i class="fa fa-fw fa-wrench"></i> Services</a>
+  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a>
   <a href="gallery.html"><i class="fa fa-fw fa-camera"></i> Gallery</a>
-  <a href="about2.html"><i class="fa fa-fw fa-book"></i> About</a>
-  <a href="column layout.html"><i class="fa fa-fw fa-book"></i> More us</a>
+  <a href="about2.html"><i class="fa fa-fw fa-user"></i> About</a>
+  <a href="column layout.html"><i class="fa fa-fw fa-user"></i> More us</a>
+
+  
 </div>
 
 <div class="main">
-  <h2>Welcome</h2>
+  <h2>Welcome Back!</h2>
   <?php if (isset($user)): ?>
         
         <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
@@ -83,7 +85,7 @@ body {font-family: "Lato", sans-serif;}
          
     <?php endif; ?>
   
-  <p>Need to make appointments make them.</p>
+  <p>How`s your health, not good? Make appointment now.</p>
   <!DOCTYPE html>
 <html>
 <head>

@@ -121,7 +121,7 @@ a:hover {
 
 
 
-<a href="index2.php" class="previous round">&#8249;</a>
+<a href="adminlogin.php" class="previous round">&#8249;</a>
 
   
 </body>

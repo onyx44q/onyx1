@@ -25,7 +25,7 @@
                 <div class="card">
                     <div class="card-header">
                         <h4>Patient Details
-                            <a href="student-create.php" class="btn btn-primary float-end">Make Appointment</a>
+                            <a href="admincreate.php" class="btn btn-primary float-end">Make Appointment</a>
                         </h4>
                     </div>
                     <div class="card-body">
@@ -121,7 +121,7 @@ a:hover {
 
 
 
-<a href="index2.php" class="previous round">&#8249;</a>
+<a href="adminindex.php" class="previous round">&#8249;</a>
 
   
 </body>

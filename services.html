@@ -2,106 +2,108 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-* {
-  box-sizing: border-box;
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
 }
 
-.columns {
-  float: left;
-  width: 33.3%;
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
   padding: 8px;
 }
 
-.price {
-  list-style-type: none;
-  border: 1px solid #eee;
-  margin: 0;
-  padding: 0;
-  -webkit-transition: 0.3s;
-  transition: 0.3s;
-}
-
-.price:hover {
-  box-shadow: 0 8px 12px 0 rgba(0,0,0,0.2)
-}
-
-.price .header {
-  background-color: #111;
-  color: white;
-  font-size: 25px;
-}
-
-.price li {
-  border-bottom: 1px solid #eee;
-  padding: 20px;
-  text-align: center;
-}
-
-.price .grey {
-  background-color: #eee;
-  font-size: 20px;
-}
-
-.button {
-  background-color: dodgerblue;
-  border: none;
-  color: white;
-  padding: 10px 25px;
-  text-align: center;
-  text-decoration: none;
-  font-size: 18px;
-}
-
-@media only screen and (max-width: 600px) {
-  .columns {
-    width: 100%;
-  }
+tr:nth-child(even) {
+  background-color: #dddddd;
 }
 </style>
 </head>
 <body>
 
-<h2 style="text-align:center">What we Offer!!</h2>
-<p style="text-align:center">Have a look.</p>
+<h2>This Are Our Services and Doctors</h2>
 
-<div class="columns">
-  <ul class="price">
-    <li class="header">Surgeries</li>
-    <li class="grey">$ 90,000 / year</li>
-    <li>Heart</li>
-    <li>Eyes</li>
-    <li>Kidneys</li>
-    <li>Face</li>
-    <li class="grey"><a href="#" class="button">Sign Up</a></li>
-  </ul>
-</div>
-
-<div class="columns">
-  <ul class="price">
-    <li class="header" style="background-color:#04AA6D">Transplants</li>
-    <li class="grey">$ 24,000/ year</li>
-    <li>Liver</li>
-    <li>Heart</li>
-    <li>Pancreas</li>
-    <li>Stomach</li>
-    <li class="grey"><a href="#" class="button">Sign Up</a></li>
-  </ul>
-</div>
-
-<div class="columns">
-  <ul class="price">
-    <li class="header">Pedetricians</li>
-    <li class="grey">$ 49.99 / year</li>
-    <li>0-9 months kids</li>
-    <li>10-15 kids</li>
-    <li>Therapy</li>
-    <li>Grown ups</li>
-    <li class="grey"><a href="#" class="button">Sign Up</a></li>
-  </ul>
-</div>
+<table>
+  <tr>
+    <th>Doctor</th>
+    <th>Contact</th>
+    <th>Speciality</th>
+    <th>Location</th>
+  </tr>
+  <tr>
+    <td>Alfreds Futterkiste</td>
+    <td>Alfred@gmail.com</td>
+    <td>Cardiologist</td>
+    <td>Germany,Munich</td>
+  </tr>
+  <tr>
+    <td>Centro Moctezuma</td>
+    <td>Moc@gmail.com</td>
+    <td>Pedeatrician</td>
+    <td>Mexico, tijuana</td>
+  </tr>
+  <tr>
+    <td>Ernst Handel</td>
+    <td>Handel@gmail.com</td>
+    <td>Optician</td>
+    <td>Austria, Vienna</td>
+  </tr>
+  <tr>
+    <td>Travis Cure</td>
+    <td>cure@gmail.com</td>
+    <th>Surgeon</th>
+    <td>UK, Manchester</td>
+  </tr>
+  <tr>
+    <td>Bacchus Winecellars</td>
+    <td>Wine2gmail.com</td>
+    <th>Therapist</th>
+    <td>Canada, ontario</td>
+  </tr>
+  <tr>
+    <td>Alimentari Riuniti</td>
+    <td>Riuniti@gmail.com</td>
+    <th>Advanced disease research</th>
+    <td>Italy, Milan</td>
+  </tr>
+</table>
 
 </body>
 </html>
 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+a {
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+
+a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.previous {
+  background-color: dodgerblue;
+  color: black;
+}
+
+.round {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+
+
+
+<a href="index2.php" class="previous round">&#8249;</a>
+
+  
+</body>
+</html> 
