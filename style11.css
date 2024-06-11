@@ -6,7 +6,7 @@
 }
 body{
 	font-size: 120%;
-	background: #39ca74;
+	background: white;
 
 }
 
@@ -14,7 +14,7 @@ body{
 	width: 30%;
 	margin: 50px auto 0px;
 	color: white;
-	background: #39ca74;
+	background: dodgerblue;
 	text-align: center;
 	border: 1px solid #B0C4DE;
 	border-bottom: none;
@@ -54,7 +54,7 @@ form{
 	padding: 5px 10px;
 	font-size: 16px;
 	border-radius: 5px;
-	border:1px solid grey;
+	border:1px solid;
 
 }
 
@@ -63,7 +63,7 @@ form{
 	padding: 10px;
 	font-size: 15px;
 	color: white;
-	background: #39ca74;
+	background: dodgerblue;
 	border:none;
 	border-radius: 5px;
 
@@ -84,5 +84,9 @@ form{
 	text-align: left;
 	
 }
+
+
+
+
 
 

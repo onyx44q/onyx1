@@ -66,7 +66,6 @@ body {
   <a href="#default" class="logo">eDOC||</a>
   <div class="header-right">
     <a class="active" href="#home">Home</a>
-    <a href="signup2.php">Sign up</a>
     <a href="login.php">Log in</a>
   </div>
 </div>
@@ -75,13 +74,6 @@ body {
 
 </body>
 </html>
-
-
-
-
-
-
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -165,9 +157,14 @@ a:hover, a:active {
   </div>
 </div>
 
-<p><a href="adminlogin.php">Adminlogin</a>
-     
+<p><a href="login3.php">Adminlogin</a>
+<p><a href="login2.php">Doctorlogin</a>  
 
 
 </body>
 </html>
+
+
+
+
+

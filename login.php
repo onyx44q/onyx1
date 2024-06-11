@@ -1,65 +1,50 @@
-<?php
 
-$is_invalid = false;
+<?php include('server.php') ?>
 
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-    
-    $mysqli = require __DIR__ . "/connection.php";
-    
-    $sql = sprintf("SELECT * FROM user
-                    WHERE email = '%s'",
-                   $mysqli->real_escape_string($_POST["email"]));
-    
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-    
-    if ($user) {
-        
-        if (password_verify($_POST["password"], $user["password_hash"])) {
-            
-            session_start();
-            
-            session_regenerate_id();
-            
-            $_SESSION["user_id"] = $user["id"];
-            
-            header("Location: index2.php");
-            exit;
-        }
-    }
-    
-    $is_invalid = true;
-}
-
-?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Login</title>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/water.css">
-   
+	<title>Patient</title>
+	<link rel="stylesheet" type="text/css" href="style11.css">
 </head>
 <body>
-    
-    <h1>Login</h1>
-    
-    <?php if ($is_invalid): ?>
-        <em>Invalid login</em>
-    <?php endif; ?>
-    
-    <form method="post">
-        <label for="email">email</label>
-        <input type="email" name="email" id="email"
-               value="<?= htmlspecialchars($_POST["email"] ?? "") ?>">
-        
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password">
-        
-        <button>Log in</button>
-        <a href="indexhomepage.php">Back to homepage</a>
-    </form>
-    
+	<div class="header">
+	<h2>Patient Login</h2>
+	<img src="images (1).png" height="100" width="100">
+</div>
+
+<form method="post" action="login.php">
+
+	<?php include ('errors.php')?>
+
+	<div class="input-group">
+		<label>User ID</label>
+		<input type="text" name="UserID">
+
+	</div>
+
+
+
+
+	<div class="input-group">
+		<label>Password</label>
+		<input type="Password" name="password">
+
+
+
+	<div class="input-group">
+		<button type="submit" name="Login" class="btn"> Login</button>
+	</div>
+
+	<p>
+		Not a member? <a href="1st.php">Sign Up </a>
+	</p>
+	
+
+
+
+
+</form>
+<script src="app.js"></script>
 </body>
 </html>

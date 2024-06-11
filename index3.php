@@ -1,133 +1,148 @@
-<?php
-    session_start();
-    require 'connection2.php';
-?>
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <title>Patient CRUD</title>
-</head>
-<body>
-  
-    <div class="container mt-4">
-
-        <?php include('message.php'); ?>
-
-        <div class="row">
-            <div class="col-md-12">
-                <div class="card">
-                    <div class="card-header">
-                        <h4>Patient Details
-                            <a href="student-create.php" class="btn btn-primary float-end">Make Appointment</a>
-                        </h4>
-                    </div>
-                    <div class="card-body">
-
-                        <table class="table table-bordered table-striped">
-                            <thead>
-                                <tr>
-                                    <th>ID</th>
-                                    <th>Patient Name</th>
-                                    <th>Email</th>
-                                    <th>Phone</th>
-                                    <th>Appdate</th>
-                                    <th>Apptime</th>
-                                    <th>Doctor</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php 
-                                    $query = "SELECT * FROM students";
-                                    $query_run = mysqli_query($con, $query);
-
-                                    if(mysqli_num_rows($query_run) > 0)
-                                    {
-                                        foreach($query_run as $student)
-                                        {
-                                            ?>
-                                            <tr>
-                                                <td><?= $student['id']; ?></td>
-                                                <td><?= $student['name']; ?></td>
-                                                <td><?= $student['email']; ?></td>
-                                                <td><?= $student['phone']; ?></td>
-                                                <td><?= $student['appdate']; ?></td>
-                                                <td><?= $student['apptime']; ?></td>
-                                                <td><?= $student['doctor']; ?></td>
-                                                
-        
-                                                <td>
-                                                    <a href="student-view.php?id=<?= $student['id']; ?>" class="btn btn-info btn-sm">View</a>
-                                                    <a href="student-edit.php?id=<?= $student['id']; ?>" class="btn btn-success btn-sm">Edit</a>
-                                                    <form action="code.php" method="POST" class="d-inline">
-                                                        <button type="submit" name="delete_student" value="<?=$student['id'];?>" class="btn btn-danger btn-sm">Delete</button>
-                                                    </form>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                        }
-                                    }
-                                    else
-                                    {
-                                        echo "<h5> No Record Found </h5>";
-                                    }
-                                ?>
-                                
-                            </tbody>
-                        </table>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-    
-    
-    <!DOCTYPE html>
+<?php include ('bookserver.php'); ?>
+<!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-a {
-  text-decoration: none;
-  display: inline-block;
-  padding: 8px 16px;
-}
+	<title>Admin</title>
+	<link rel="stylesheet"  href="style5.css" type="text/css">
 
-a:hover {
-  background-color: #ddd;
-  color: black;
-}
-
-.previous {
-  background-color: dodgerblue;
-  color: black;
-}
-
-.round {
-  border-radius: 50%;
-}
-</style>
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
+
+<header>
+	<h1>Doctor<span>Patient</span></h1>
+		<nav>
+		
+
+
+		
+		<ul> 
+			
+		
+			<li><a href="index3.php">Add/Delete Doctor</a></li>
+			<li><a href="viewdoctor.php">View Doctors</a></li>
+			<li><a href=" viewpatients.php">View Patients</a></li>
+			<li><a href="viewappointments.php">View Appointments</a></li>
+			<li><a href="searchdonoradmin.php">Search Donor</a></li>
+			<li><a href="feedback.php">FeedBack</a></li>
+
+  			<li><a href="indexhomepage.php">Logout</a></li>
+
+			
+
+
+
+	
+			
+
+		</ul>
+		
+
+
+
+	</nav>
+
+
+
+
+</header>
 <body>
 
+		<div class="headerA">
+	<h2>Add Doctor</h2>
+</div>
+
+<form method="post" action="index3.php">
+
+	<?php include ('errors.php'); ?>
+
+	<div class="input-groupA">
+		<label>Doctor ID</label>
+		<input type="text" name="addID" >
+
+	</div>
 
 
-<a href="index2.php" class="previous round">&#8249;</a>
-
-  
-</body>
-</html> 
+	<div class="input-groupA">
+		<label>Doctor Name</label>
+		<input type="text" name="addname" >
 
 
+	</div>
+
+	<div class="input-groupA">
+		<label>Address</label>
+		<input type="text" name="addAddress">
+
+	</div>
+
+	<div class="input-groupA">
+		<label>Contact Number</label>
+		<input type="text" name="addContactNumber">
+
+
+	</div>
+
+
+	<div class="input-groupA">
+		<label>Email address</label>
+		<input type="text" name="addEmail">
+
+	</div>
+
+	<div class="input-groupA">
+		<label>Password</label>
+		<input type="text" name="addpassword">
+
+	</div>
+<div class="input-groupA">
+	<label>Category</label>
+	   	<select name="addcategory" class="xd">
+	   		<option value="bone" >bones</option>
+	   		<option value="heart">heart</option>
+	   		<option value="Dentistry">Dentistry</option>
+	   		<option value="MentalHealth">Mental Health</option>
+	   		<option value="Surgery">Surgery</option>
+
+	   		
+
+
+	   	</select>
+	   	</div>
+
+	<div class="input-groupA">
+		<button type="submit" name="Add" class="btnA">Add Doctor</button>
+	</div>
+
+
+	
+
+
+
+
+</form>
+	<div class="headerAD">
+	<h2>Delete Doctor</h2>
+</div>
+
+<form method="post" action="index3.php" class="delete">
+
+	<div class="input-groupA">
+		<label>Doctor ID</label>
+		<input type="text" name="deleteID" >
+
+	</div>
+
+	<div class="input-groupA">
+		<button type="submit" name="Delete" class="btnA">Delete</button>
+	</div>
+
+</form>
+
+
+
+
+
+	
 
 </body>
 </html>

@@ -1,118 +1,112 @@
-<?php
-
-session_start();
-
-if (isset($_SESSION["user_id"])) {
-    
-    $mysqli = require __DIR__ . "/connection.php";
-    
-    $sql = "SELECT * FROM user
-            WHERE id = {$_SESSION["user_id"]}";
-            
-    $result = $mysqli->query($sql);
-    
-    $user = $result->fetch_assoc();
-}
-
-?>
+<?php include ('server.php'); ?>
 <!DOCTYPE html>
 <html>
 <head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body {font-family: "Lato", sans-serif;}
-
-.sidebar {
-  height: 100%;
-  width: 160px;
-  position: fixed;
-  z-index: 1;
-  top: 0;
-  left: 0;
-  background-color: dodgerblue;
-  overflow-x: hidden;
-  padding-top: 16px;
-}
-
-.sidebar a {
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
-  font-size: 20px;
-  color: white;
-  display: block;
-}
-
-.sidebar a:hover {
-  color: black;
-}
-
-.main {
-  margin-left: 160px; /* Same as the width of the sidenav */
-  padding: 0px 10px;
-}
-
-@media screen and (max-height: 450px) {
-  .sidebar {padding-top: 15px;}
-  .sidebar a {font-size: 18px;}
-}
-</style>
+	<title>Doctor</title>
+	<link rel="stylesheet"  href="style10.css">
+	<link href="https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Open+Sans:wght@300&display=swap" rel="stylesheet">
 </head>
-<body>
 
-<div class="sidebar">
-  <a href="#home"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a href="index3.php"><i class="fa fa-fw fa-book"></i>Book</a>
-  <a href="services.html"><i class="fa fa-fw fa-wrench"></i> Services</a>
-  <a href="contact.html"><i class="fa fa-fw fa-phone"></i> Contact</a>
-  <a href="gallery.html"><i class="fa fa-fw fa-camera"></i> Gallery</a>
-  <a href="about2.html"><i class="fa fa-fw fa-user"></i> About</a>
-  <a href="column layout.html"><i class="fa fa-fw fa-user"></i> More us</a>
+<header>
+	<h1 >Doctor<span>Patient</span></h1>
+		<nav>
+		
 
-  
+
+		
+		<ul > 
+			
+		
+			<li><a href="index2.php">MyInfo</a></li>
+			<li><a href="doctorapp.php">My Appointments</a></li>
+			<li><a href=" searchpatient.php">Search Patient</a></li>
+			<li><a href="add.php">Add Description</a></li>
+			<li><a href="indexhomepage.php">Logout</a></li>
+			
+			
+
+
+
+	
+			
+
+		</ul>
+		
+
+
+
+	</nav>
+
+
+
+
+</header>
+<body >
+
+	<div class="header">
+	<h2>My Information</h2>
+</div>
+<form method="post" action="index2.php" class="info">
+
+
+ 
+
+
+<div class="Dcontent">
+
+
+	<label>ID: <?php echo "" .isset($_SESSION['DoctorID']);?></label>
+
+	 	   <br>
+	 	   <br>
+	 	   <label> Email : <?php echo $colD['email']; ?></label>
+	 	   	 	   <br>
+	 	   <br>
+	 	   <label> Name : <?php echo $colD['Doctorname']; ?></label>
+	 	   	 	   <br>
+	 	   <br>
+	 	   <label> Address : <?php echo $colD['Address']; ?></label>
+	 	   	 	   <br>
+	 	   <br>
+	 	   <label> Contact Number : <?php echo $colD['ContactNumber']; ?></label>
+	 	   	 	   <br>
+	 	   <br>
+	 	   <label> Specialized In : <?php echo $colD['categorey']; ?></label>
+	 	   	 	   <br>
+	 	   <br>
+	 	   
+
+
+
+	
+        
+           
+	
 </div>
 
-<div class="main">
-  <h2>Welcome Back!</h2>
-  <?php if (isset($user)): ?>
-        
-        <p>Hello <?= htmlspecialchars($user["name"]) ?></p>
-        
-       
-        
-    <?php else: ?>
   
-         
-    <?php endif; ?>
-  
-  <p>How`s your health, not good? Make appointment now.</p>
-  <!DOCTYPE html>
-<html>
-<head>
-<style>
-a:link, a:visited {
-  background-color: dodgerblue;
-  color: white;
-  padding: 14px 25px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-}
-
-a:hover, a:active {
-  background-color: red;
-}
-</style>
-</head>
-<body>
 
 
-<p><a href="logout.php">Log out</a></p>
+
+ 
+
+
+</form>
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+
 
 </body>
 </html>
-
-</div>
-     
-</body>
-</html> 

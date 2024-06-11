@@ -53,11 +53,11 @@ session_start();
                             </div>
                             <div class="mb-3">
                                 <label>Doctor</label>
-                                <input type="text" name="doctor" class="form-control">   
+                                <input type="text" name="doctor" class="form-control">
                             </div>
 
                             <div class="mb-3">
-                                <button type="submit" name="save_student" class="btn btn-primary">Save Patient</button>
+                                <button type="submit" name="save_student" class="btn btn-primary">Save Student</button>
                             </div>
 
                         </form>
