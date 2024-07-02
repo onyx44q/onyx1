@@ -60,7 +60,7 @@
 		<th>Category</th>
 
 		</tr>
-
+		
 		<?php $sql3="SELECT  * FROM  doctor " ;
 		$result3=$mysqli->query($sql3);
 		if(mysqli_num_rows($result3)>=1){
@@ -75,9 +75,12 @@
 
 
 		}
+		
 
 		?>
 		
 	</table>
+	
+
 </body>
 </html>
