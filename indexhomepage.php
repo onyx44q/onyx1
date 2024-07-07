@@ -10,7 +10,7 @@
     <body>
         <div class="banner">
             <video autoplay loop muted plays-inline>
-                <source src="6129932-hd_1920_1080_30fps.mp4" type="video/mp4">
+                <source src="5030437-hd_1920_1080_30fps.mp4" type="video/mp4">
             </video>
             <div class="navbar">
                 <img class="logo" src="edoc+service+inc.png">
